@@ -3,9 +3,151 @@ body {
   padding: 16px;
   font-family: system-ui, sans-serif;
   margin: 0;
+  background: #1a1a2e;
+  color: #e0e0e0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
 }
 
 h1 {
-  font-size: 18px;
-  margin: 0 0 8px;
+  font-size: 16px;
+  margin: 0;
+  color: #ffffff;
+}
+
+/* Toggle switch */
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  inset: 0;
+  background: #444;
+  border-radius: 22px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.toggle-slider::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 3px;
+  bottom: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.toggle input:checked + .toggle-slider {
+  background: #6c5ce7;
+}
+
+.toggle input:checked + .toggle-slider::before {
+  transform: translateX(18px);
+}
+
+/* Automatic row */
+.auto-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding: 8px 10px;
+  background: #252540;
+  border-radius: 8px;
+}
+
+.auto-label {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+}
+
+.auto-status {
+  font-size: 11px;
+  color: #888;
+  margin-top: 1px;
+}
+
+/* Controls */
+.control {
+  margin-bottom: 12px;
+}
+
+.control label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: #aaa;
+}
+
+/* Dim slider */
+.slider-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.slider-row input[type="range"] {
+  flex: 1;
+  accent-color: #6c5ce7;
+}
+
+.range-label {
+  font-size: 11px;
+  color: #666;
+  text-transform: uppercase;
+}
+
+/* Warmth presets */
+.warmth-presets {
+  display: flex;
+  gap: 6px;
+}
+
+.warmth-btn {
+  flex: 1;
+  padding: 6px 0;
+  border: 1px solid #333;
+  border-radius: 6px;
+  background: #252540;
+  color: #aaa;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.warmth-btn:hover {
+  border-color: #555;
+  color: #ddd;
+}
+
+.warmth-btn.active {
+  border-color: #6c5ce7;
+  background: #2d2b55;
+  color: #fff;
+}
+
+/* Disabled state when automatic is on */
+#manual-controls.disabled {
+  opacity: 0.35;
+  pointer-events: none;
 }

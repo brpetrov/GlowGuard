@@ -10,6 +10,7 @@
     "sourceMap": false,
     "declaration": false,
     "noEmit": true,
+    "types": ["chrome"],
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
