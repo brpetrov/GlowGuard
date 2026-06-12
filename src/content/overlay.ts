@@ -68,3 +68,28 @@ api.storage.onChanged.addListener((changes: Record<string, chrome.storage.Storag
     applyOverlay();
   }
 });
+
+api.runtime.onMessage.addListener((message: { type?: string; text?: string }) => {
+  if (message.type === "glowguard-toast" && message.text) {
+    showToast(message.text);
+  }
+});
+
+function showToast(text: string): void {
+  const TOAST_ID = "glowguard-toast";
+  let toast = document.getElementById(TOAST_ID);
+  if (toast) toast.remove();
+
+  toast = document.createElement("div");
+  toast.id = TOAST_ID;
+  toast.textContent = text;
+  toast.style.cssText =
+    "position:fixed;bottom:24px;left:50%;transform:translateX(-50%);" +
+    "padding:8px 16px;background:rgba(30,30,50,0.9);color:#e0e0e0;" +
+    "font:13px system-ui,sans-serif;border-radius:8px;z-index:2147483647;" +
+    "pointer-events:none;opacity:1;transition:opacity 0.4s ease;";
+  document.documentElement.appendChild(toast);
+
+  setTimeout(() => { toast!.style.opacity = "0"; }, 1500);
+  setTimeout(() => { toast!.remove(); }, 2000);
+}

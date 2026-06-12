@@ -1,52 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="popup.css">
-  <title>GlowGuard</title>
-</head>
-<body>
-  <div class="header">
-    <h1>GlowGuard</h1>
-    <label class="toggle">
-      <input type="checkbox" id="enabled-toggle" checked>
-      <span class="toggle-slider"></span>
-    </label>
-  </div>
-
-  <div class="auto-row">
-    <label class="toggle">
-      <input type="checkbox" id="auto-toggle">
-      <span class="toggle-slider"></span>
-    </label>
-    <div class="auto-label">
-      <span>Automatic</span>
-      <span id="auto-status" class="auto-status"></span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="popup.css" />
+    <title>GlowGuard</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1>GlowGuard</h1>
+      <label class="toggle">
+        <input type="checkbox" id="enabled-toggle" checked />
+        <span class="toggle-slider"></span>
+      </label>
     </div>
-  </div>
 
-  <div id="manual-controls">
-    <div class="control">
-      <label>Dim level</label>
-      <div class="slider-row">
-        <span class="range-label">min</span>
-        <input type="range" id="dim-slider" min="0" max="40" step="1" value="10">
-        <span class="range-label">max</span>
+    <div class="auto-row">
+      <label class="toggle">
+        <input type="checkbox" id="auto-toggle" />
+        <span class="toggle-slider"></span>
+      </label>
+      <div class="auto-label">
+        <span>Automatic</span>
+        <span id="auto-status" class="auto-status"></span>
       </div>
     </div>
 
-    <div class="control">
-      <label>Warmth</label>
-      <div class="warmth-presets">
-        <button class="warmth-btn active" data-warmth="off">Off</button>
-        <button class="warmth-btn" data-warmth="soft">Soft</button>
-        <button class="warmth-btn" data-warmth="warm">Warm</button>
-        <button class="warmth-btn" data-warmth="deep">Deep</button>
+    <div id="manual-controls">
+      <div class="control">
+        <label>Dim level</label>
+        <div class="slider-row">
+          <span class="range-label">min</span>
+          <input
+            type="range"
+            id="dim-slider"
+            min="0"
+            max="40"
+            step="1"
+            value="10"
+          />
+          <span class="range-label">max</span>
+        </div>
+      </div>
+
+      <div class="control">
+        <label>Warmth</label>
+        <div class="warmth-presets">
+          <button class="warmth-btn active" data-warmth="off">Off</button>
+          <button class="warmth-btn" data-warmth="soft">Soft</button>
+          <button class="warmth-btn" data-warmth="warm">Warm</button>
+          <button class="warmth-btn" data-warmth="deep">Deep</button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <script src="popup.js"></script>
-</body>
+    <button id="shortcuts-toggle" class="shortcuts-toggle">
+      <span class="shortcuts-left">
+        <span class="shortcuts-icon">⌨</span> Keyboard Shortcuts
+      </span>
+      <span id="shortcuts-arrow" class="shortcuts-arrow">▾</span>
+    </button>
+
+    <div id="shortcuts-panel" class="shortcuts-panel hidden">
+      <div class="shortcut-row">
+        <kbd>Alt+Shift+G</kbd>
+        <span>Toggle on / off</span>
+      </div>
+      <div class="shortcut-row">
+        <kbd>Alt+Shift+Up</kbd>
+        <span>Increase dim</span>
+      </div>
+      <div class="shortcut-row">
+        <kbd>Alt+Shift+Down</kbd>
+        <span>Decrease dim</span>
+      </div>
+      <div class="shortcut-row">
+        <kbd>Alt+Shift+W</kbd>
+        <span>Cycle warmth preset</span>
+      </div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
 </html>

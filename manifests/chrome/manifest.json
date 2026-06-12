@@ -46,6 +46,10 @@
     "dim-decrease": {
       "suggested_key": { "default": "Alt+Shift+Down" },
       "description": "Decrease dim level"
+    },
+    "warmth-cycle": {
+      "suggested_key": { "default": "Alt+Shift+W" },
+      "description": "Cycle warmth preset"
     }
   }
 }

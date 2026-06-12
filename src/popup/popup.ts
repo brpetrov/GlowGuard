@@ -63,4 +63,13 @@ async function init(): Promise<void> {
   });
 }
 
+const shortcutsToggle = document.getElementById("shortcuts-toggle") as HTMLButtonElement;
+const shortcutsPanel = document.getElementById("shortcuts-panel") as HTMLDivElement;
+const shortcutsArrow = document.getElementById("shortcuts-arrow") as HTMLSpanElement;
+
+shortcutsToggle.addEventListener("click", () => {
+  shortcutsPanel.classList.toggle("hidden");
+  shortcutsArrow.classList.toggle("open");
+});
+
 init();
