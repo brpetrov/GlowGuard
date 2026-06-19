@@ -24,6 +24,17 @@
         <span>Automatic</span>
         <span id="auto-status" class="auto-status"></span>
       </div>
+      <button id="auto-info-btn" class="auto-info-btn" title="How Automatic works">&#9432;</button>
+    </div>
+
+    <div id="auto-info-panel" class="auto-info-panel hidden">
+      <p>Automatic adjusts dimming and blue light filter based on time of day:</p>
+      <ul>
+        <li><strong>Day</strong> (6am–6pm) — light dim, no filter</li>
+        <li><strong>Evening</strong> (6pm–10pm) — medium dim, soft filter</li>
+        <li><strong>Night</strong> (10pm–6am) — stronger dim, warm filter</li>
+      </ul>
+      <p>Bright pages get extra dimming automatically.</p>
     </div>
 
     <div id="manual-controls">
@@ -44,7 +55,7 @@
       </div>
 
       <div class="control">
-        <label>Warmth</label>
+        <label>Blue Light Filter</label>
         <div class="warmth-presets">
           <button class="warmth-btn active" data-warmth="off">Off</button>
           <button class="warmth-btn" data-warmth="soft">Soft</button>
@@ -76,7 +87,7 @@
       </div>
       <div class="shortcut-row">
         <kbd>Alt+Shift+W</kbd>
-        <span>Cycle warmth preset</span>
+        <span>Cycle blue light filter</span>
       </div>
     </div>
 

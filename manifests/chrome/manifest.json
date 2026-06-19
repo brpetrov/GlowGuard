@@ -49,7 +49,7 @@
     },
     "warmth-cycle": {
       "suggested_key": { "default": "Alt+Shift+W" },
-      "description": "Cycle warmth preset"
+      "description": "Cycle blue light filter"
     }
   }
 }

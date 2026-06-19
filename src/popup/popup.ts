@@ -63,6 +63,13 @@ async function init(): Promise<void> {
   });
 }
 
+const autoInfoBtn = document.getElementById("auto-info-btn") as HTMLButtonElement;
+const autoInfoPanel = document.getElementById("auto-info-panel") as HTMLDivElement;
+
+autoInfoBtn.addEventListener("click", () => {
+  autoInfoPanel.classList.toggle("hidden");
+});
+
 const shortcutsToggle = document.getElementById("shortcuts-toggle") as HTMLButtonElement;
 const shortcutsPanel = document.getElementById("shortcuts-panel") as HTMLDivElement;
 const shortcutsArrow = document.getElementById("shortcuts-arrow") as HTMLSpanElement;

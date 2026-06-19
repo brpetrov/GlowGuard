@@ -22,17 +22,17 @@ GlowGuard takes a different approach: instead of rewriting colors, it places a t
 
 A lightweight overlay that darkens any page. Adjustable from barely-there to noticeably dimmed. Works on every website instantly.
 
-### Warm Tint
+### Blue Light Filter
 
-Optional amber tint that reduces blue light. Choose from four presets — Off, Soft, Warm, and Deep — each carefully tuned to look natural.
+Reduces blue light with an amber tint. Choose from four presets — Off, Soft, Warm, and Deep — each carefully tuned to look natural.
 
 ### Automatic Mode
 
 One toggle. GlowGuard figures out the rest:
 
-- **Day** (6am–6pm) — light dim, no warmth
-- **Evening** (6pm–10pm) — medium dim, soft warmth
-- **Night** (10pm–6am) — stronger dim, warm tint
+- **Day** (6am–6pm) — light dim, no filter
+- **Evening** (6pm–10pm) — medium dim, soft blue light filter
+- **Night** (10pm–6am) — stronger dim, warm blue light filter
 - **Bright pages** get extra dimming automatically
 
 ### Anti-Flash Protection
@@ -44,7 +44,7 @@ Ever notice the blinding white flash before a page loads? GlowGuard injects a di
 - `Alt+Shift+G` — Toggle GlowGuard on/off
 - `Alt+Shift+Up` — Increase dim
 - `Alt+Shift+Down` — Decrease dim
-- `Alt+Shift+W` — Cycle warmth (Off → Soft → Warm → Deep)
+- `Alt+Shift+W` — Cycle blue light filter (Off → Soft → Warm → Deep)
 
 ### Fullscreen Video _(coming soon)_
 
