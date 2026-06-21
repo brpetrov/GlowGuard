@@ -8,7 +8,10 @@ export const WARMTH_MIN = 0;
 export const WARMTH_MAX = 40;
 export const DIM_STEP = 5;
 
+export const SETTINGS_VERSION = 1;
+
 export const DEFAULT_SETTINGS: GlowGuardSettings = {
+  settingsVersion: SETTINGS_VERSION,
   enabled: true,
   automatic: false,
   dimLevel: 10,

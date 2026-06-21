@@ -2,6 +2,25 @@ import { getSettings, saveSettings } from "../shared/settings";
 import { warmthLevelToPreset, WARMTH_LEVELS } from "../shared/warmth";
 import { getAutomaticLevels } from "../shared/schedule";
 
+const api = (typeof browser !== "undefined" ? browser : chrome) as typeof chrome;
+
+const restrictedMsg = document.getElementById("restricted-msg") as HTMLDivElement;
+const mainControls = document.getElementById("main-controls") as HTMLDivElement;
+
+function isRestrictedUrl(url: string): boolean {
+  return /^(chrome|edge|about|chrome-extension|moz-extension):/.test(url)
+    || url.includes("chrome.google.com/webstore")
+    || url.includes("addons.mozilla.org");
+}
+
+api.tabs.query({ active: true, currentWindow: true }).then((tabs) => {
+  const url = tabs[0]?.url || "";
+  if (isRestrictedUrl(url)) {
+    restrictedMsg.classList.remove("hidden");
+    mainControls.classList.add("hidden");
+  }
+});
+
 const enabledToggle = document.getElementById("enabled-toggle") as HTMLInputElement;
 const autoToggle = document.getElementById("auto-toggle") as HTMLInputElement;
 const autoStatus = document.getElementById("auto-status") as HTMLSpanElement;

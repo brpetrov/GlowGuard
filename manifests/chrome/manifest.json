@@ -33,7 +33,7 @@
       "all_frames": false
     }
   ],
-  "permissions": ["storage", "alarms"],
+  "permissions": ["storage", "alarms", "activeTab"],
   "commands": {
     "toggle-glowguard": {
       "suggested_key": { "default": "Alt+Shift+G" },

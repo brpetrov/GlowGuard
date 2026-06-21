@@ -46,14 +46,6 @@ Ever notice the blinding white flash before a page loads? GlowGuard injects a di
 - `Alt+Shift+Down` — Decrease dim
 - `Alt+Shift+W` — Cycle blue light filter (Off → Soft → Warm → Deep)
 
-### Fullscreen Video _(coming soon)_
-
-Automatically hides the overlay during fullscreen video so your movies and streams look normal.
-
-### Per-Site Settings _(planned)_
-
-Disable GlowGuard on specific sites or set custom dim levels per website.
-
 ---
 
 ## Performance

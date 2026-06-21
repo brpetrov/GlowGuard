@@ -7,89 +7,115 @@
     <title>GlowGuard</title>
   </head>
   <body>
-    <div class="header">
-      <h1>GlowGuard</h1>
-      <label class="toggle">
-        <input type="checkbox" id="enabled-toggle" checked />
-        <span class="toggle-slider"></span>
-      </label>
+    <div id="restricted-msg" class="restricted-msg hidden">
+      <p>Cannot dim this page</p>
+      <p class="restricted-detail">
+        Browser internal pages don't allow extensions to modify them. GlowGuard
+        works on regular websites.
+      </p>
     </div>
 
-    <div class="auto-row">
-      <label class="toggle">
-        <input type="checkbox" id="auto-toggle" />
-        <span class="toggle-slider"></span>
-      </label>
-      <div class="auto-label">
-        <span>Automatic</span>
-        <span id="auto-status" class="auto-status"></span>
+    <div id="main-controls">
+      <div class="header">
+        <h1>GlowGuard</h1>
+        <label class="toggle toggle-lg">
+          <input type="checkbox" id="enabled-toggle" checked />
+          <span class="toggle-slider"></span>
+        </label>
       </div>
-      <button id="auto-info-btn" class="auto-info-btn" title="How Automatic works">&#9432;</button>
-    </div>
 
-    <div id="auto-info-panel" class="auto-info-panel hidden">
-      <p>Automatic adjusts dimming and blue light filter based on time of day:</p>
-      <ul>
-        <li><strong>Day</strong> (6am–6pm) — light dim, no filter</li>
-        <li><strong>Evening</strong> (6pm–10pm) — medium dim, soft filter</li>
-        <li><strong>Night</strong> (10pm–6am) — stronger dim, warm filter</li>
-      </ul>
-      <p>Bright pages get extra dimming automatically.</p>
-    </div>
+      <div class="auto-row">
+        <label class="toggle">
+          <input type="checkbox" id="auto-toggle" />
+          <span class="toggle-slider"></span>
+        </label>
+        <div class="auto-label">
+          <span>Automatic</span>
+          <span id="auto-status" class="auto-status"></span>
+        </div>
+        <button
+          id="auto-info-btn"
+          class="auto-info-btn"
+          title="How Automatic works"
+        >
+          &#9432;
+        </button>
+      </div>
 
-    <div id="manual-controls">
-      <div class="control">
-        <label>Dim level</label>
-        <div class="slider-row">
-          <span class="range-label">min</span>
-          <input
-            type="range"
-            id="dim-slider"
-            min="0"
-            max="40"
-            step="1"
-            value="10"
-          />
-          <span class="range-label">max</span>
+      <div id="auto-info-panel" class="auto-info-panel hidden">
+        <p>
+          Automatic adjusts dimming and blue light filter based on time of day:
+        </p>
+        <ul>
+          <li><strong>Day</strong> (6am–6pm) — light dim, no filter</li>
+          <li><strong>Evening</strong> (6pm–10pm) — medium dim, soft filter</li>
+          <li><strong>Night</strong> (10pm–6am) — stronger dim, warm filter</li>
+        </ul>
+        <p>Bright pages get extra dimming automatically.</p>
+      </div>
+
+      <div id="manual-controls">
+        <div class="control">
+          <label>Dim level</label>
+          <div class="slider-row">
+            <span class="range-label">min</span>
+            <input
+              type="range"
+              id="dim-slider"
+              min="0"
+              max="40"
+              step="1"
+              value="10"
+            />
+            <span class="range-label">max</span>
+          </div>
+        </div>
+
+        <div class="control">
+          <label>Blue Light Filter</label>
+          <div class="warmth-presets">
+            <button class="warmth-btn active" data-warmth="off">Off</button>
+            <button class="warmth-btn" data-warmth="soft">Soft</button>
+            <button class="warmth-btn" data-warmth="warm">Warm</button>
+            <button class="warmth-btn" data-warmth="deep">Deep</button>
+          </div>
         </div>
       </div>
 
-      <div class="control">
-        <label>Blue Light Filter</label>
-        <div class="warmth-presets">
-          <button class="warmth-btn active" data-warmth="off">Off</button>
-          <button class="warmth-btn" data-warmth="soft">Soft</button>
-          <button class="warmth-btn" data-warmth="warm">Warm</button>
-          <button class="warmth-btn" data-warmth="deep">Deep</button>
+      <button id="shortcuts-toggle" class="shortcuts-toggle">
+        <span class="shortcuts-left">
+          <span class="shortcuts-icon">⌨</span> Keyboard Shortcuts
+        </span>
+        <span id="shortcuts-arrow" class="shortcuts-arrow">▾</span>
+      </button>
+
+      <div id="shortcuts-panel" class="shortcuts-panel hidden">
+        <div class="shortcut-row">
+          <kbd>Alt+Shift+G</kbd>
+          <span>Toggle on / off</span>
+        </div>
+        <div class="shortcut-row">
+          <kbd>Alt+Shift+Up</kbd>
+          <span>Increase dim</span>
+        </div>
+        <div class="shortcut-row">
+          <kbd>Alt+Shift+Down</kbd>
+          <span>Decrease dim</span>
+        </div>
+        <div class="shortcut-row">
+          <kbd>Alt+Shift+W</kbd>
+          <span>Cycle blue light filter</span>
         </div>
       </div>
     </div>
 
-    <button id="shortcuts-toggle" class="shortcuts-toggle">
-      <span class="shortcuts-left">
-        <span class="shortcuts-icon">⌨</span> Keyboard Shortcuts
-      </span>
-      <span id="shortcuts-arrow" class="shortcuts-arrow">▾</span>
-    </button>
-
-    <div id="shortcuts-panel" class="shortcuts-panel hidden">
-      <div class="shortcut-row">
-        <kbd>Alt+Shift+G</kbd>
-        <span>Toggle on / off</span>
-      </div>
-      <div class="shortcut-row">
-        <kbd>Alt+Shift+Up</kbd>
-        <span>Increase dim</span>
-      </div>
-      <div class="shortcut-row">
-        <kbd>Alt+Shift+Down</kbd>
-        <span>Decrease dim</span>
-      </div>
-      <div class="shortcut-row">
-        <kbd>Alt+Shift+W</kbd>
-        <span>Cycle blue light filter</span>
-      </div>
-    </div>
+    <a
+      href="https://buymeacoffee.com/brooven"
+      target="_blank"
+      class="donate-link"
+    >
+      ☕ Buy me a coffee
+    </a>
 
     <script src="popup.js"></script>
   </body>

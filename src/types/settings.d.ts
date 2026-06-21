@@ -31,6 +31,7 @@ export interface AntiFlashSettings {
 }
 
 export interface GlowGuardSettings {
+  settingsVersion: number;
   enabled: boolean;
   automatic: boolean;
   dimLevel: number;

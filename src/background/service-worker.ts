@@ -9,6 +9,7 @@ chrome.runtime.onInstalled.addListener(async () => {
   const settings = await getSettings();
   await saveSettings(settings);
   if (settings.automatic) scheduleNextAlarm();
+  updateIcon(settings.enabled);
 });
 
 chrome.alarms.onAlarm.addListener(async alarm => {
@@ -24,6 +25,7 @@ chrome.alarms.onAlarm.addListener(async alarm => {
 chrome.storage.onChanged.addListener(async (changes, area) => {
   if (area !== 'local' || !changes[STORAGE_KEY]) return;
   const settings = await getSettings();
+  updateIcon(settings.enabled);
   if (settings.automatic) {
     scheduleNextAlarm();
   } else {
@@ -65,6 +67,16 @@ chrome.commands.onCommand.addListener(async command => {
     await saveSettings({ warmthLevel: WARMTH_LEVELS[order[nextIndex]] });
   }
 });
+
+function updateIcon(enabled: boolean): void {
+  const suffix = enabled ? '' : '-disabled';
+  chrome.action.setIcon({
+    path: {
+      16: `icons/icon-16${suffix}.png`,
+      32: `icons/icon-32${suffix}.png`,
+    },
+  });
+}
 
 async function scheduleNextAlarm(): Promise<void> {
   const settings = await getSettings();

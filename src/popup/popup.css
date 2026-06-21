@@ -7,6 +7,24 @@ body {
   color: #e0e0e0;
 }
 
+.restricted-msg {
+  text-align: center;
+  padding: 12px 0;
+  color: #888;
+  font-size: 13px;
+}
+
+.restricted-msg p {
+  margin: 0;
+}
+
+.restricted-detail {
+  margin-top: 6px !important;
+  font-size: 11px;
+  color: #666;
+  line-height: 1.4;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -45,7 +63,7 @@ h1 {
 }
 
 .toggle-slider::before {
-  content: "";
+  content: '';
   position: absolute;
   width: 16px;
   height: 16px;
@@ -62,6 +80,21 @@ h1 {
 
 .toggle input:checked + .toggle-slider::before {
   transform: translateX(18px);
+}
+
+/* Larger toggle for main on/off */
+.toggle-lg {
+  width: 48px;
+  height: 26px;
+}
+
+.toggle-lg .toggle-slider::before {
+  width: 20px;
+  height: 20px;
+}
+
+.toggle-lg input:checked + .toggle-slider::before {
+  transform: translateX(22px);
 }
 
 /* Automatic row */
@@ -149,8 +182,23 @@ h1 {
   gap: 8px;
 }
 
-.slider-row input[type="range"] {
+.slider-row input[type='range'] {
   flex: 1;
+  accent-color: #6c5ce7;
+}
+
+/* Option row (checkbox + label) */
+.option-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.option-row input[type='checkbox'] {
   accent-color: #6c5ce7;
 }
 
@@ -266,4 +314,20 @@ h1 {
 .shortcut-row span {
   font-size: 12px;
   color: #888;
+}
+
+/* Donate link */
+.donate-link {
+  display: block;
+  text-align: center;
+  margin-top: 14px;
+  padding: 6px 0;
+  font-size: 13px;
+  color: #b8a44c;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.donate-link:hover {
+  color: #e0cc5a;
 }
