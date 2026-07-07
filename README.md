@@ -48,6 +48,24 @@ Ever notice the blinding white flash before a page loads? GlowGuard injects a di
 
 ---
 
+## Roadmap — Coming Next
+
+**v1.1 — Accessibility** *(in development)*
+
+- Readable font mode — dyslexia-friendly font with improved spacing
+- Text contrast fix — no more grey-on-white text
+- Thin-font fixer — thickens hard-to-read lightweight fonts
+- Link & focus visibility — underlined links, visible keyboard focus
+- Reading ruler — a guide line that follows your cursor
+
+**v1.2 — Night Comfort**
+
+- Image dimming — bright images stop blinding you on dark sites
+- Reduce motion — freeze animations, carousels and smooth-scroll
+- Smooth transitions — automatic mode fades between day/evening/night instead of snapping
+
+---
+
 ## Performance
 
 GlowGuard is designed to use zero resources when idle:
@@ -95,11 +113,13 @@ npm run build
 2. Click "Load Temporary Add-on..."
 3. Select `dist/firefox/manifest.json`
 
-### From Store _(coming soon)_
+### From Store _(submitted — in review)_
 
 - Chrome Web Store
 - Edge Add-ons
 - Firefox Add-ons (AMO)
+
+Links will be added here once each store approves the listing.
 
 ---
 

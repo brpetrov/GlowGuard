@@ -8,7 +8,7 @@ export const WARMTH_MIN = 0;
 export const WARMTH_MAX = 40;
 export const DIM_STEP = 5;
 
-export const SETTINGS_VERSION = 1;
+export const SETTINGS_VERSION = 2;
 
 export const DEFAULT_SETTINGS: GlowGuardSettings = {
   settingsVersion: SETTINGS_VERSION,
@@ -33,5 +33,12 @@ export const DEFAULT_SETTINGS: GlowGuardSettings = {
   antiFlash: {
     enabled: true,
     emergencyDim: 10,
+  },
+  accessibility: {
+    readableFont: false,
+    contrastFix: false,
+    thinFontFix: false,
+    linkVisibility: false,
+    readingRuler: false,
   },
 };

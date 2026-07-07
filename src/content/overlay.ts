@@ -3,9 +3,11 @@ import { STORAGE_KEY } from "../shared/constants";
 import { warmthLevelToPreset, WARMTH_PRESETS } from "../shared/warmth";
 import { getAutomaticLevels } from "../shared/schedule";
 import { isPageBright } from "../shared/brightness";
+import { buildAccessibilityCss } from "../shared/a11y-styles";
 
 const DIM_ID = "glowguard-overlay";
 const WARMTH_ID = "glowguard-warmth";
+const A11Y_STYLE_ID = "glowguard-a11y";
 
 const api = (typeof browser !== "undefined" ? browser : chrome) as typeof chrome;
 
@@ -24,16 +26,30 @@ function getOrCreate(id: string): HTMLDivElement {
   return el;
 }
 
+function getOrCreateA11yStyle(): HTMLStyleElement {
+  let el = document.getElementById(A11Y_STYLE_ID) as HTMLStyleElement | null;
+  if (!el) {
+    el = document.createElement("style");
+    el.id = A11Y_STYLE_ID;
+    document.documentElement.appendChild(el);
+  }
+  return el;
+}
+
 async function applyOverlay(): Promise<void> {
   const settings = await getSettings();
   const dimEl = getOrCreate(DIM_ID);
   const warmthEl = getOrCreate(WARMTH_ID);
+  const a11yStyle = getOrCreateA11yStyle();
 
   if (!settings.enabled) {
     dimEl.style.opacity = "0";
     warmthEl.style.opacity = "0";
+    a11yStyle.textContent = "";
     return;
   }
+
+  a11yStyle.textContent = buildAccessibilityCss(settings.accessibility);
 
   let dimLevel: number;
   let warmthLevel: number;

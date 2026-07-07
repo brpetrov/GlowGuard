@@ -30,6 +30,14 @@ export interface AntiFlashSettings {
   emergencyDim: number;
 }
 
+export interface AccessibilitySettings {
+  readableFont: boolean;
+  contrastFix: boolean;
+  thinFontFix: boolean;
+  linkVisibility: boolean;
+  readingRuler: boolean;
+}
+
 export interface GlowGuardSettings {
   settingsVersion: number;
   enabled: boolean;
@@ -40,4 +48,5 @@ export interface GlowGuardSettings {
   siteRules: SiteRule[];
   brightBoost: BrightBoostSettings;
   antiFlash: AntiFlashSettings;
+  accessibility: AccessibilitySettings;
 }

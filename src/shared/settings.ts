@@ -6,6 +6,14 @@ const api = (typeof browser !== "undefined" ? browser : chrome) as typeof chrome
 function migrate(settings: GlowGuardSettings): GlowGuardSettings {
   const version = settings.settingsVersion || 0;
 
+  // v1 → v2: accessibility toggles added in 1.1.0
+  if (version < 2) {
+    settings.accessibility = {
+      ...DEFAULT_SETTINGS.accessibility,
+      ...settings.accessibility,
+    };
+  }
+
   if (version < SETTINGS_VERSION) {
     settings.settingsVersion = SETTINGS_VERSION;
   }
