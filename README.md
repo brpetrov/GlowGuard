@@ -94,7 +94,7 @@ GlowGuard is designed to use zero resources when idle:
 ### From Source (Development)
 
 ```bash
-git clone https://github.com/AcidYurets/GlowGuard.git
+git clone https://github.com/brpetrov/GlowGuard.git
 cd GlowGuard
 npm install
 npm run build
